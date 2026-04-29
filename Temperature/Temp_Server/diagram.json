@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "author": "mqtt-server",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -140, "left": 220, "attrs": { "pins": "i2c" } },
+
+    { "type": "wokwi-led", "id": "led", "top": -40, "left": -120, "attrs": { "color": "red" } },
+
+    { "type": "wokwi-buzzer", "id": "buzz", "top": 120, "left": -120, "attrs": {} }
+  ],
+
+  "connections": [
+    [ "lcd:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "lcd:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "lcd:SDA", "esp:D21", "green", [ "v0" ] ],
+    [ "lcd:SCL", "esp:D22", "green", [ "v0" ] ],
+
+    [ "led:A", "esp:D23", "green", [ "v0" ] ],
+    [ "led:C", "esp:GND.2", "black", [ "v0" ] ],
+
+    [ "buzz:1", "esp:D19", "green", [ "v0" ] ],
+    [ "buzz:2", "esp:GND.3", "black", [ "v0" ] ]
+  ],
+
+  "dependencies": {}
+}

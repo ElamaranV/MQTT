@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "You",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -100, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd",
+      "top": -224,
+      "left": 82.4,
+      "attrs": { "pins": "i2c" }
+    },
+    { "type": "wokwi-servo", "id": "servo", "top": 50, "left": 150, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "arrival_btn",
+      "top": 150,
+      "left": 150,
+      "attrs": { "color": "green", "label": "Car Arrives" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:5V", "lcd:VCC", "red", [] ],
+    [ "esp:GND.1", "lcd:GND", "black", [] ],
+    [ "esp:21", "lcd:SDA", "green", [] ],
+    [ "esp:22", "lcd:SCL", "blue", [] ],
+    [ "esp:5V", "servo:V+", "red", [] ],
+    [ "esp:GND.2", "servo:GND", "black", [] ],
+    [ "esp:18", "servo:PWM", "orange", [] ],
+    [ "esp:19", "arrival_btn:1.l", "purple", [] ],
+    [ "esp:GND.3", "arrival_btn:2.l", "black", [] ]
+  ],
+  "dependencies": {}
+}

@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "author": "You",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -100, "attrs": {} },
+    { "type": "wokwi-lcd2004", "id": "lcd", "top": -243.2, "left": 140, "attrs": { "pins": "i2c" } },
+    { "type": "wokwi-membrane-keypad", "id": "keypad", "top": 276.4, "left": 120.8, "attrs": {} },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -50, "left": 150, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb2", "top": -50, "left": 210, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb3", "top": -50, "left": 270, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb4", "top": -50, "left": 330, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb5", "top": -50, "left": 390, "attrs": { "common": "cathode" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:21", "lcd:SDA", "green", [] ],
+    [ "esp:22", "lcd:SCL", "blue", [] ],
+    [ "esp:5V", "lcd:VCC", "red", [] ],
+    [ "esp:GND.1", "lcd:GND", "black", [] ],
+    
+    [ "esp:GND.2", "rgb1:COM", "black", [] ],
+    [ "esp:GND.2", "rgb2:COM", "black", [] ],
+    [ "esp:GND.2", "rgb3:COM", "black", [] ],
+    [ "esp:GND.2", "rgb4:COM", "black", [] ],
+    [ "esp:GND.2", "rgb5:COM", "black", [] ],
+
+    [ "esp:13", "rgb1:R", "red", [] ], [ "esp:25", "rgb1:G", "green", [] ],
+    [ "esp:12", "rgb2:R", "red", [] ], [ "esp:33", "rgb2:G", "green", [] ],
+    [ "esp:14", "rgb3:R", "red", [] ], [ "esp:32", "rgb3:G", "green", [] ],
+    [ "esp:27", "rgb4:R", "red", [] ], [ "esp:23", "rgb4:G", "green", [] ],
+    [ "esp:26", "rgb5:R", "red", [] ], [ "esp:0", "rgb5:G", "green", [] ],
+
+    [ "esp:19", "keypad:R1", "orange", [ "h8.84", "v518.4" ] ],
+    [ "esp:18", "keypad:R2", "orange", [ "h18.44", "v508.8" ] ],
+    [ "esp:5", "keypad:R3", "orange", [ "h28.04", "v499.2" ] ],
+    [ "esp:17", "keypad:R4", "orange", [ "h37.64", "v489.6" ] ],
+    [ "esp:16", "keypad:C1", "purple", [ "h47.24", "v480" ] ],
+    [ "esp:4", "keypad:C2", "purple", [ "h56.84", "v470.4" ] ],
+    [ "esp:2", "keypad:C3", "purple", [ "h66.44", "v451.2" ] ],
+    [ "esp:15", "keypad:C4", "purple", [ "h76.04", "v441.6" ] ]
+  ]
+}

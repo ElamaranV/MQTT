@@ -1,0 +1,61 @@
+{
+  "version": 1,
+  "author": "Elamaran V",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-v1", "id": "esp", "top": -300.32, "left": -14.4, "attrs": {} },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -121.66,
+      "left": 125.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -251.6,
+      "left": 322.4,
+      "attrs": {}
+    },
+    { "type": "wokwi-rgb-led", "id": "rgb1", "top": -120, "left": -180, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb2", "top": -60, "left": -180, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb3", "top": 0, "left": -180, "attrs": { "common": "cathode" } },
+    { "type": "wokwi-rgb-led", "id": "rgb4", "top": 60, "left": -180, "attrs": { "common": "cathode" } },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 213.6,
+      "left": -199.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:D23", "bz1:1", "purple", [ "v0" ] ],
+    [ "esp:GND.1", "bz1:2", "black", [ "v0" ] ],
+    [ "esp:D19", "keypad1:R1", "gray", [ "v0" ] ],
+    [ "esp:D18", "keypad1:R2", "gray", [ "v0" ] ],
+    [ "esp:D5", "keypad1:C1", "white", [ "v0" ] ],
+    [ "esp:D4", "keypad1:C2", "white", [ "v0" ] ],
+    [ "esp:D15", "keypad1:C3", "white", [ "v0" ] ],
+    [ "esp:D13", "rgb1:R", "red", [ "h0" ] ],
+    [ "esp:D12", "rgb1:G", "green", [ "h0" ] ],
+    [ "esp:GND.1", "rgb1:COM", "black", [ "h0" ] ],
+    [ "esp:D14", "rgb2:R", "red", [ "h0" ] ],
+    [ "esp:D27", "rgb2:G", "green", [ "h0" ] ],
+    [ "esp:GND.1", "rgb2:COM", "black", [ "h0" ] ],
+    [ "esp:D26", "rgb3:R", "red", [ "h0" ] ],
+    [ "esp:D25", "rgb3:G", "green", [ "h0" ] ],
+    [ "esp:GND.1", "rgb3:COM", "black", [ "h0" ] ],
+    [ "esp:D33", "rgb4:R", "red", [ "h0" ] ],
+    [ "esp:D32", "rgb4:G", "green", [ "h0" ] ],
+    [ "esp:GND.1", "rgb4:COM", "black", [ "h0" ] ],
+    [ "oled1:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "oled1:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "oled1:SCL", "esp:D22", "green", [ "v0" ] ],
+    [ "oled1:SDA", "esp:D21", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}

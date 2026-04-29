@@ -1,0 +1,22 @@
+{
+   "data": [
+      {
+         "device": "ESP32_Wokwi",
+         "val": 61,
+         "status": "OK",
+         "id": 289224305879493058
+      },
+      {
+         "device": "ESP32_Wokwi",
+         "val": 57,
+         "status": "OK",
+         "id": 126598588778850328
+      },
+      {
+         "device": "ESP32_Wokwi",
+         "val": 24,
+         "status": "OK",
+         "id": 547530104354275736
+      }
+   ]
+}

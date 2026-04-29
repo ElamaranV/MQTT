@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "author": "Elamaran V",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 144, "left": -321.56, "attrs": {} },
+    {
+      "type": "wokwi-lcd2004",
+      "id": "lcd1",
+      "top": -89.6,
+      "left": -109.6,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-membrane-keypad",
+      "id": "keypad1",
+      "top": -174.8,
+      "left": 312.8,
+      "attrs": {}
+    },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -281.05, "left": -73.36, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:GND.1", "lcd1:GND", "black", [ "v0" ] ],
+    [ "esp:3V3.1", "lcd1:VCC", "red", [ "v0" ] ],
+    [ "esp:21", "lcd1:SDA", "green", [ "v0" ] ],
+    [ "esp:22", "lcd1:SCL", "yellow", [ "v0" ] ],
+    [ "esp:GND.2", "rfid1:GND", "black", [ "v0" ] ],
+    [ "esp:3V3.2", "rfid1:3.3V", "red", [ "v0" ] ],
+    [ "esp:5", "rfid1:SDA", "orange", [ "v0" ] ],
+    [ "esp:18", "rfid1:SCK", "blue", [ "v0" ] ],
+    [ "esp:23", "rfid1:MOSI", "purple", [ "v0" ] ],
+    [ "esp:19", "rfid1:MISO", "cyan", [ "v0" ] ],
+    [ "esp:4", "rfid1:RST", "gray", [ "v0" ] ],
+    [ "keypad1:R1", "esp:13", "red", [ "v0" ] ],
+    [ "keypad1:R2", "esp:12", "red", [ "v0" ] ],
+    [ "keypad1:R3", "esp:14", "red", [ "v0" ] ],
+    [ "keypad1:R4", "esp:27", "red", [ "v0" ] ],
+    [ "keypad1:C1", "esp:26", "green", [ "v0" ] ],
+    [ "keypad1:C2", "esp:25", "green", [ "v0" ] ],
+    [ "keypad1:C3", "esp:33", "green", [ "v0" ] ],
+    [ "keypad1:C4", "esp:32", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
